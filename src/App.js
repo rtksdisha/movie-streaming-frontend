@@ -1,40 +1,30 @@
+import { useState } from "react";
 import { Fragment } from "react";
-import Navbar from "./components/Navbar"
-import {Routes, Route} from "react-router-dom"
-import AdminPage from "./pages/AdminPage"
-import FavoritesPage from "./pages/FavotitesPage"
-import MoviesPage from "./pages/moviesPage"
-
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import AdminPage from "./pages/AdminPage";
+import FavoritesPage from "./pages/FavotitesPage";
+import MoviesPage from "./pages/MoviesPage";
 
 function App() {
+  const [allMovies, setAllMovies] = useState(false);
+
   return (
     <Fragment>
-      <Navbar/>
+      <Navbar />
       <Routes>
+        <Route path ="/" element ={<MoviesPage/>}/>
         <Route
-            path="/movies"
-            element = {
-              <MoviesPage>
-
-              </MoviesPage>
-            }
+          path="/admin"
+          element={
+            <AdminPage
+              allMovies={allMovies}
+              setAllMovies={setAllMovies}
+            ></AdminPage>
+          }
         />
-                <Route
-            path="/favorites"
-            element = {
-              <FavoritesPage>
-
-              </FavoritesPage>
-            }
-        />
-                <Route
-            path="/admin"
-            element = {
-              <AdminPage>
-
-              </AdminPage>
-            }
-        />
+        <Route path="/movies" element={<MoviesPage></MoviesPage>} />
+        <Route path="/favorites" element={<FavoritesPage></FavoritesPage>} />
       </Routes>
     </Fragment>
   );

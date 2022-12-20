@@ -16,7 +16,7 @@ const pages = ["movies", "favorites", "admin"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  
+
   const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
     <AppBar position="static" sx={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}/> */}
 
           {/* Site Name */}
           <Typography
@@ -51,6 +51,7 @@ function ResponsiveAppBar() {
             Stream Bay
           </Typography>
 
+          {/* not sure what this box does, from MUI template*/}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -87,6 +88,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
+          {/* not sure what this does, from MUI template*/}
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
