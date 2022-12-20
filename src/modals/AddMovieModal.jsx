@@ -12,11 +12,11 @@ import {
 const AddMovieModal = ({ open, onClose, onSubmit }) => {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Add a New Movie</DialogTitle>
-      <DialogContent>
+      <DialogTitle sx={{ padding: "20px", backgroundColor:"maroon" }}>Add a New Movie</DialogTitle>
+      <DialogContent  sx={{ padding: "20px", backgroundColor:"beige" }}>
         <MovieForm onSubmit={onSubmit} />
       </DialogContent>
-      <DialogActions>
+      <DialogActions  sx={{ backgroundColor:"beige" }}>
         <Button
           variant="contained"
           color="error"

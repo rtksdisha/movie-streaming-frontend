@@ -30,6 +30,15 @@ const MovieForm = (onSubmit, defaultEditValues) => {
 
   const coverImageValue = watch("coverImage");
 
+  const details = [
+    "Name",
+    "Synopsis",
+    "Genre",
+    "Movie Url",
+    "Release Date",
+    "Cover Image Url",
+  ];
+
   return (
     <Box
       id="movie-form"
@@ -42,20 +51,23 @@ const MovieForm = (onSubmit, defaultEditValues) => {
       <Grid container spacing={5}>
         {/* grid of type item */}
         <Grid item xs={8}>
-          <Controller
-            control={control}
-            name="name"
-            render={({ field, fieldState }) => (
-              <TextField
-                {...field}
-                label="Name"
-                variant="outlined"
-                fullWidth
-                error={!!fieldState.error}
-                helperText={fieldState.error?.message}
-              />
-            )}
-          />
+          {details.map((detail) => (
+            <Controller
+              key={detail}
+              control={control}
+              name={detail}
+              render={({ field, fieldState }) => (
+                <TextField
+                  {...field}
+                  label={detail}
+                  variant="standard"
+                  fullWidth
+                  error={!!fieldState.error}
+                  helperText={fieldState.error?.message}
+                />
+              )}
+            />
+          ))}
         </Grid>
       </Grid>
     </Box>
