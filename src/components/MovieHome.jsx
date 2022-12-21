@@ -3,8 +3,12 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import MovieDetails from "./MovieDetails";
+import { useNavigate } from "react-router-dom";
 
 const MovieHome = ({ movie }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Box sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}>
@@ -35,8 +39,24 @@ const MovieHome = ({ movie }) => {
       <Stack direction="row">
         <Button
           sx={{
-            background: "black",
+            background: "Black",
+            color: "white",
             height: 64,
+            width: 1,
+            margin: 0,
+            padding: 0,
+            borderRadious: 0,
+            boxShadow: 3,
+          }}
+          onClick={() => navigate("/movieDetails", {state: movie})}
+        >
+          Details
+        </Button>
+        <Button
+          sx={{
+            background: "Maroon",
+            height: 64,
+            color: "white",
             width: 1,
             margin: 0,
             padding: 0,

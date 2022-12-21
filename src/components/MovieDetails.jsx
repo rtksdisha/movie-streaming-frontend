@@ -3,8 +3,11 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useLocation } from "react-router-dom";
 
-const MovieAdmin = ({ movie }) => {
+const MovieDetails = () => {
+  const movie = useLocation().state;
+
   return (
     <>
       <Box sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}>
@@ -32,14 +35,24 @@ const MovieAdmin = ({ movie }) => {
 
             <Typography fontSize={21}>Release Date:</Typography>
             <Typography fontSize={17}>{movie.synopsis}</Typography>
-
-            <Typography fontSize={21}>Movie URL:</Typography>
-            <Typography fontSize={17}>{movie.movieUrl}</Typography>
-
           </Stack>
         </Stack>
       </Box>
       <Stack direction="row">
+        <Button
+          sx={{
+            background: "Green",
+            height: 64,
+            color: "white",
+            width: 1,
+            margin: 0,
+            padding: 0,
+            borderRadious: 0,
+            boxShadow: 3,
+          }}
+        >
+          Watch Now
+        </Button>
         <Button
           sx={{
             background: "black",
@@ -52,25 +65,11 @@ const MovieAdmin = ({ movie }) => {
             boxShadow: 3,
           }}
         >
-          EDIT
-        </Button>
-        <Button
-          sx={{
-            background: "Maroon",
-            height: 64,
-            color: "white",
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-        >
-          DELETE
+          Add to Favorite
         </Button>
       </Stack>
     </>
   );
 };
 
-export default MovieAdmin;
+export default MovieDetails;

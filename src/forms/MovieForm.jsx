@@ -28,8 +28,6 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
     mode: "all",
   });
 
-  console.log(handleSubmit);
-
   const coverImageValue = watch("coverImage");
 
   const details = [
@@ -51,12 +49,14 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
     >
       <Grid container spacing={5}>
         {details.map((detail) => (
-          <Grid item xs={8}>
+          <Grid key={detail} item xs={8}>
             <Controller
+              key={detail}
               control={control}
               name={detail}
               render={({ field, fieldState }) => (
                 <TextField
+                  key={detail}
                   {...field}
                   label={detail}
                   variant="standard"

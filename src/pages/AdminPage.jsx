@@ -13,7 +13,6 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
   const [isAddMovieModalVisible, setIsAddMovieVisible] = useState(false);
 
   const handleOnSubmit = (movie) => {
-    console.log("hello")
     const tempMovies = Array.from(allMovies);
     tempMovies.push({
       ...movie,
