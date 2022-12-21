@@ -4,10 +4,8 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MovieDetails from "./MovieDetails";
-import { useNavigate } from "react-router-dom";
 
 const MovieHome = ({ movie }) => {
-  const navigate = useNavigate();
 
   return (
     <>
@@ -37,21 +35,6 @@ const MovieHome = ({ movie }) => {
         </Stack>
       </Box>
       <Stack direction="row">
-        <Button
-          sx={{
-            background: "Black",
-            color: "white",
-            height: 64,
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-          onClick={() => navigate("/movieDetails", {state: movie})}
-        >
-          Details
-        </Button>
         <Button
           sx={{
             background: "Maroon",
