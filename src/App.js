@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import AdminPage from "./pages/AdminPage";
 import FavoritesPage from "./pages/FavotitesPage";
-import MoviesPage from "./pages/MoviesPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const [allMovies, setAllMovies] = useState([]);
@@ -13,17 +13,14 @@ function App() {
     <Fragment>
       <Navbar />
       <Routes>
-        <Route path ="/" element ={<MoviesPage/>}/>
+        <Route path="/" element={<HomePage allMovies={allMovies}/>} />
         <Route
           path="/admin"
           element={
-            <AdminPage
-              allMovies={allMovies}
-              setAllMovies={setAllMovies}
-            />
+            <AdminPage allMovies={allMovies} setAllMovies={setAllMovies} />
           }
         />
-        <Route path="/movies" element={<MoviesPage></MoviesPage>} />
+        <Route path="/movies" element={<HomePage allMovies={allMovies} />} />
         <Route path="/favorites" element={<FavoritesPage></FavoritesPage>} />
       </Routes>
     </Fragment>
