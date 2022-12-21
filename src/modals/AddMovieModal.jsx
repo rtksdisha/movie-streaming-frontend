@@ -30,7 +30,8 @@ const AddMovieModal = ({ open, onClose, onSubmit }) => {
           form="movie-form"
           type="submit"
           //name of the button
-          children="Add movie"
+          children="Add"
+          onClick={onClose}
         />
       </DialogActions>
     </Dialog>

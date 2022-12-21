@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Box, Fab } from "@mui/material";
+import { Box, Container, Fab } from "@mui/material";
 import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
 import AddMovieModal from "../modals/AddMovieModal";
+import MovieListAdmin from "../components/MovieListAdmin"
 
 //option to add new movie with a pop up
 //show existing list of movies
@@ -12,6 +13,7 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
   const [isAddMovieModalVisible, setIsAddMovieVisible] = useState(false);
 
   const handleOnSubmit = (movie) => {
+    console.log("hello")
     const tempMovies = Array.from(allMovies);
     tempMovies.push({
       ...movie,
@@ -22,7 +24,7 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
   };
 
   return (
-    <Box>
+    <Container maxWidth="lg" sx={{margin:2}}>
       <Fab
         variant="extended"
         onClick={() => setIsAddMovieVisible(true)}
@@ -35,12 +37,13 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
         <AddCircleOutline sx={{ mr: 1 }} />
         Add a new Movie
       </Fab>
+      <MovieListAdmin movies={allMovies}/>
       <AddMovieModal
         open={isAddMovieModalVisible}
         onClose={() => setIsAddMovieVisible(false)}
         onSubmit={handleOnSubmit}
       />
-    </Box>
+    </Container>
   );
 };
 

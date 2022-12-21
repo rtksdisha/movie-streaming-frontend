@@ -7,7 +7,7 @@ import FavoritesPage from "./pages/FavotitesPage";
 import MoviesPage from "./pages/MoviesPage";
 
 function App() {
-  const [allMovies, setAllMovies] = useState(false);
+  const [allMovies, setAllMovies] = useState([]);
 
   return (
     <Fragment>
@@ -20,7 +20,7 @@ function App() {
             <AdminPage
               allMovies={allMovies}
               setAllMovies={setAllMovies}
-            ></AdminPage>
+            />
           }
         />
         <Route path="/movies" element={<MoviesPage></MoviesPage>} />

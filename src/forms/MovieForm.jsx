@@ -3,40 +3,42 @@ import * as yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { Box, Grid, TextField } from "@mui/material";
 
-const MovieForm = (onSubmit, defaultEditValues) => {
+const MovieForm = ({ onSubmit, defaultEditValues }) => {
   const defaultValues = {
     name: "",
     synopsis: "",
     genre: "",
     movieUrl: "",
-    releaseDate: Date.now(),
+    releaseDate: "",
     coverImage: "",
   };
 
   const movieFormSchema = yup.object().shape({
-    name: yup.string().required("Please provide the movie name"),
+    name: yup.string().required("Provide movie name"),
     synopsis: yup.string(),
-    genre: yup.string().required("Please write a genre"),
+    genre: yup.string().required("Write a genre"),
     movieUrl: yup.string(),
-    releaseDate: yup.date().required("Please enter the release date"),
+    releaseDate: yup.string(),
     coverImage: yup.string(),
   });
 
   const { control, watch, handleSubmit, reset } = useForm({
-    defaultValues: defaultEditValues || defaultValues,
+    defaultValues: defaultValues,
     resolver: yupResolver(movieFormSchema),
     mode: "all",
   });
 
+  console.log(handleSubmit);
+
   const coverImageValue = watch("coverImage");
 
   const details = [
-    "Name",
-    "Synopsis",
-    "Genre",
-    "Movie Url",
-    "Release Date",
-    "Cover Image Url",
+    "name",
+    "synopsis",
+    "genre",
+    "movieUrl",
+    "releaseDate",
+    "coverImage",
   ];
 
   return (
@@ -47,13 +49,10 @@ const MovieForm = (onSubmit, defaultEditValues) => {
       onSubmit={handleSubmit(onSubmit)}
       sx={{ padding: "20px" }}
     >
-      {/* Grid of Type container */}
       <Grid container spacing={5}>
-        {/* grid of type item */}
-        <Grid item xs={8}>
-          {details.map((detail) => (
+        {details.map((detail) => (
+          <Grid item xs={8}>
             <Controller
-              key={detail}
               control={control}
               name={detail}
               render={({ field, fieldState }) => (
@@ -67,8 +66,8 @@ const MovieForm = (onSubmit, defaultEditValues) => {
                 />
               )}
             />
-          ))}
-        </Grid>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
