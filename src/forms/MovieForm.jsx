@@ -63,7 +63,6 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
                   fullWidth
                   error={!!fieldState.error}
                   helperText={fieldState.error?.message}
-                  autoComplete={false}
                 />
               )}
             />

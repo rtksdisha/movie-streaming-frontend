@@ -4,12 +4,17 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import MovieDetails from "./MovieDetails";
+import { useNavigate } from "react-router-dom";
 
 const MovieHome = ({ movie }) => {
+  const navigate = useNavigate();
 
   return (
     <>
-      <Box sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}>
+      <Box
+        onClick={() => navigate("/movieDetails", { state: movie })}
+        sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}
+      >
         {/* Cover image */}
         <Box
           component="img"

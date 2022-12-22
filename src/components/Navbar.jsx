@@ -34,10 +34,9 @@ function ResponsiveAppBar() {
 
           {/* Site Name */}
           <Typography
+            onClick={() => navigate('/')}
             variant="h6"
             noWrap
-            component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
