@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container, Fab } from "@mui/material";
+import { Container, Fab } from "@mui/material";
 import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
 import AddMovieModal from "../modals/AddMovieModal";
 import MovieListAdmin from "../components/MovieListAdmin"
@@ -17,6 +17,7 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
     tempMovies.push({
       ...movie,
       _id: tempMovies.length + 1,
+      isFavorite: false
     });
 
     setAllMovies(tempMovies);

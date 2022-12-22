@@ -3,11 +3,20 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import MovieDetails from "./MovieDetails";
 import { useNavigate } from "react-router-dom";
 
 const MovieHome = ({ movie }) => {
   const navigate = useNavigate();
+
+  function handleOnClick(){
+    movie.isFavorite = !movie.isFavorite
+
+    if(movie.isFavorite){
+      window.alert("Added to favorites")
+    }else{
+      window.alert("Removed from favorites")
+    }
+  }
 
   return (
     <>
@@ -40,7 +49,24 @@ const MovieHome = ({ movie }) => {
         </Stack>
       </Box>
       <Stack direction="row">
-        <Button
+        {movie.isFavorite ?
+          (<Button
+          onClick={handleOnClick}
+          sx={{
+            background: "Maroon",
+            height: 64,
+            color: "white",
+            width: 1,
+            margin: 0,
+            padding: 0,
+            borderRadious: 0,
+            boxShadow: 3,
+          }}
+        >
+          Remove from Favorite
+        </Button>) :
+        (<Button
+          onClick={handleOnClick}
           sx={{
             background: "Maroon",
             height: 64,
@@ -53,7 +79,7 @@ const MovieHome = ({ movie }) => {
           }}
         >
           Add to Favorite
-        </Button>
+        </Button>)}
       </Stack>
     </>
   );

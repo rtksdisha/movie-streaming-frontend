@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import AdminPage from "./pages/AdminPage";
-import FavoritesPage from "./pages/FavotitesPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import HomePage from "./pages/HomePage";
 import MovieDetails from "./components/MovieDetails";
 
@@ -22,7 +22,7 @@ function App() {
           }
         />
         <Route path="/movies" element={<HomePage allMovies={allMovies} />} />
-        <Route path="/favorites" element={<FavoritesPage></FavoritesPage>} />
+        <Route path="/favorites" element={<FavoritesPage allMovies={allMovies} />} />
         <Route path="/movieDetails" element={<MovieDetails />} />
       </Routes>
     </Fragment>
