@@ -23,7 +23,7 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
   });
 
   const { control, watch, handleSubmit, reset } = useForm({
-    defaultValues: defaultValues,
+    defaultValues: defaultEditValues || defaultValues,
     resolver: yupResolver(movieFormSchema),
     mode: "all",
   });

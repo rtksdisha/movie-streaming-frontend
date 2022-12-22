@@ -4,10 +4,10 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-const MovieAdmin = ({ movie }) => {
+const MovieAdmin = ({ movie, handleOnEdit }) => {
   return (
     <>
-      <Box sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}>
+      <Box sx={{ backgroundColor: "beige", boxShadow: 3 }}>
         {/* Cover image */}
         <Box
           component="img"
@@ -31,16 +31,16 @@ const MovieAdmin = ({ movie }) => {
             <Typography fontSize={17}>{movie.genre}</Typography>
 
             <Typography fontSize={21}>Release Date:</Typography>
-            <Typography fontSize={17}>{movie.synopsis}</Typography>
+            <Typography fontSize={17}>{movie.releaseDate}</Typography>
 
             <Typography fontSize={21}>Movie URL:</Typography>
             <Typography fontSize={17}>{movie.movieUrl}</Typography>
-
           </Stack>
         </Stack>
       </Box>
       <Stack direction="row">
         <Button
+          onClick={() => handleOnEdit(movie)}
           sx={{
             background: "black",
             height: 64,

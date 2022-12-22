@@ -44,7 +44,7 @@ const MovieHome = ({ movie }) => {
             <Typography fontSize={17}>{movie.genre}</Typography>
 
             <Typography fontSize={21}>Release Date:</Typography>
-            <Typography fontSize={17}>{movie.synopsis}</Typography>
+            <Typography fontSize={17}>{movie.releaseDate}</Typography>
           </Stack>
         </Stack>
       </Box>
