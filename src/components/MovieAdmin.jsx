@@ -4,7 +4,7 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-const MovieAdmin = ({ movie, handleOnEdit }) => {
+const MovieAdmin = ({ movie, handleOnEdit, handleOnDelete }) => {
   return (
     <>
       <Box sx={{ backgroundColor: "beige", boxShadow: 3 }}>
@@ -55,6 +55,7 @@ const MovieAdmin = ({ movie, handleOnEdit }) => {
           EDIT
         </Button>
         <Button
+          onClick={() => handleOnDelete(movie._id)}
           sx={{
             background: "Maroon",
             height: 64,

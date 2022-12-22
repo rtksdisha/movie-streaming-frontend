@@ -35,6 +35,9 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
     setEditMovie(movie);
   };
 
+  const handleOnDelete = (id) =>
+    setAllMovies((prev) => prev.filter((m) => m._id !== id));
+
   return (
     <Container maxWidth="lg" sx={{ margin: 2 }}>
       <Fab
@@ -49,7 +52,11 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
         <AddCircleOutline sx={{ mr: 1 }} />
         Add a new Movie
       </Fab>
-      <MovieListAdmin movies={allMovies} handleOnEdit={handleOnEdit} />
+      <MovieListAdmin
+        movies={allMovies}
+        handleOnEdit={handleOnEdit}
+        handleOnDelete={handleOnDelete}
+      />
       <AddMovieModal
         open={isAddMovieModalVisible}
         onClose={() => setIsAddMovieVisible(false)}
