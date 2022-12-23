@@ -4,6 +4,7 @@ import AddCircleOutline from "@mui/icons-material/AddCircleOutline";
 import AddMovieModal from "../modals/AddMovieModal";
 import MovieListAdmin from "../components/MovieListAdmin";
 import EditMovieModal from "../modals/EditMovieModal";
+import { deleteMovie, saveMovie, updateMovie } from "../api/moviesApi";
 
 //option to add new movie with a pop up
 //show existing list of movies
@@ -15,17 +16,21 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
   const [isEditMovieModalVisible, setIsEditMovieModalVisible] = useState(false);
   const [editMovie, setEditMovie] = useState();
 
-  const handleOnSubmit = (movie) => {
+  const handleOnSubmit = async (movie) => {
     const tempMovies = Array.from(allMovies);
     if (movie._id) {
+      const newMovie = await updateMovie(movie);
+
       const movieIndex = tempMovies.findIndex((m) => m._id === movie._id);
-      tempMovies[movieIndex] = movie;
-    } else
-      tempMovies.push({
-        ...movie,
-        _id: tempMovies.length + 1,
-        isFavorite: false,
-      });
+      tempMovies[movieIndex] = newMovie;
+    } else {
+      const newMovie = await saveMovie(movie);
+      if (newMovie)
+        tempMovies.push(
+          newMovie
+          // (isFavorite: false,)
+        );
+    }
 
     setAllMovies(tempMovies);
   };
@@ -35,8 +40,10 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
     setEditMovie(movie);
   };
 
-  const handleOnDelete = (id) =>
-    setAllMovies((prev) => prev.filter((m) => m._id !== id));
+  const handleOnDelete = async (id) => {
+    const response = await deleteMovie(id);
+    if (response) setAllMovies((prev) => prev.filter((m) => m._id !== id));
+  };
 
   return (
     <Container maxWidth="lg" sx={{ margin: 2 }}>
