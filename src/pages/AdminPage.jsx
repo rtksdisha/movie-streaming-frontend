@@ -28,7 +28,6 @@ const AdminPage = ({ allMovies, setAllMovies }) => {
       if (newMovie)
         tempMovies.push(
           newMovie
-          // (isFavorite: false,)
         );
     }
 
