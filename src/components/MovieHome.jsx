@@ -4,17 +4,24 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { updateMovie } from "../api/moviesApi";
 
 const MovieHome = ({ movie }) => {
   const navigate = useNavigate();
 
-  function handleOnClick(){
-    movie.isFavorite = !movie.isFavorite
+  function handleOnClick() {
+    movie.isFavorite = !movie.isFavorite;
+    //calling api to update DB
+    updateMovie(movie)
 
-    if(movie.isFavorite){
-      window.alert("Added to favorites")
-    }else{
-      window.alert("Removed from favorites")
+    if (movie.isFavorite) {
+      window.alert("Added to favorites");
+    } else {
+      window.alert("Removed from favorites");
     }
   }
 
@@ -48,38 +55,41 @@ const MovieHome = ({ movie }) => {
           </Stack>
         </Stack>
       </Box>
+
       <Stack direction="row">
-        {movie.isFavorite ?
-          (<Button
-          onClick={handleOnClick}
-          sx={{
-            background: "Maroon",
-            height: 64,
-            color: "white",
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-        >
-          Remove from Favorite
-        </Button>) :
-        (<Button
-          onClick={handleOnClick}
-          sx={{
-            background: "Maroon",
-            height: 64,
-            color: "white",
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-        >
-          Add to Favorite
-        </Button>)}
+        {movie.isFavorite ? (
+          <Button
+            onClick={handleOnClick}
+            sx={{
+              background: "Maroon",
+              height: 64,
+              color: "white",
+              width: 1,
+              margin: 0,
+              padding: 0,
+              borderRadious: 0,
+              boxShadow: 3,
+            }}
+          >
+            Remove from Favorite
+          </Button>
+        ) : (
+          <Button
+            onClick={handleOnClick}
+            sx={{
+              background: "Maroon",
+              height: 64,
+              color: "white",
+              width: 1,
+              margin: 0,
+              padding: 0,
+              borderRadious: 0,
+              boxShadow: 3,
+            }}
+          >
+            Add to Favorite
+          </Button>
+        )}
       </Stack>
     </>
   );
