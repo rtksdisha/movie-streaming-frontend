@@ -9,7 +9,7 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
     synopsis: "",
     genre: "",
     movieUrl: "",
-    releaseDate: "",
+    releaseDate: 2022,
     coverImage: "",
   };
 
@@ -18,7 +18,7 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
     synopsis: yup.string(),
     genre: yup.string().required("Write a genre"),
     movieUrl: yup.string(),
-    releaseDate: yup.string(),
+    releaseDate: yup.number(),
     coverImage: yup.string(),
   });
 
@@ -27,8 +27,6 @@ const MovieForm = ({ onSubmit, defaultEditValues }) => {
     resolver: yupResolver(movieFormSchema),
     mode: "all",
   });
-
-  const coverImageValue = watch("coverImage");
 
   const details = [
     "name",

@@ -12,19 +12,11 @@ function moviesFilter(value, filteredMovies) {
 
     if (direction == "descending") {
       return filteredMovies.sort((a, b) => {
-        return a[field][0] < b[field][0]
-          ? 1
-          : a[field][0] > b[field][0]
-          ? -1
-          : 0;
+        return a[field] < b[field] ? 1 : a[field] > b[field] ? -1 : 0;
       });
     } else {
       return filteredMovies.sort((a, b) => {
-        return a[field][0] < b[field][0]
-          ? -1
-          : a[field][0] > b[field][0]
-          ? 1
-          : 0;
+        return a[field] < b[field] ? -1 : a[field] > b[field] ? 1 : 0;
       });
     }
   }
@@ -64,6 +56,7 @@ export default function SortAndFilter({ filteredMovies, setFilteredMovies }) {
           <MenuItem value={"comedy"}>Comedy</MenuItem>
           <MenuItem value={"action"}>Action</MenuItem>
           <MenuItem value={"mystery"}>Mystery</MenuItem>
+          <MenuItem value={"adventure"}>Adventure</MenuItem>
         </Select>
       </FormControl>
 
@@ -79,15 +72,15 @@ export default function SortAndFilter({ filteredMovies, setFilteredMovies }) {
           <MenuItem value="">
             <em>Filter By</em>
           </MenuItem>
-          <MenuItem value={"name-ascending"}>Name in Ascending Order</MenuItem>
+          <MenuItem value={"name-ascending"}>Name (A-Z)</MenuItem>
           <MenuItem value={"name-descending"}>
-            Name in Descending Order
+            Name (Z-A)
           </MenuItem>
           <MenuItem value={"releaseDate-ascending"}>
-            Release Date in Ascending
+            Release Date (1-2023)
           </MenuItem>
           <MenuItem value={"releaseDate-descending"}>
-            Release Date in Descending
+            Release Date (2023-1)
           </MenuItem>
         </Select>
       </FormControl>
