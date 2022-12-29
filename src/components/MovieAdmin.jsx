@@ -21,19 +21,19 @@ const MovieAdmin = ({ movie, handleOnEdit, handleOnDelete }) => {
           spacing={2}
         >
           <Stack spacing={1} sx={{ width: 1 }}>
-            <Typography fontSize={21}>Name:</Typography>
-            <Typography fontSize={17}>{movie.name}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Name:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.name}</Typography>
 
-            <Typography fontSize={21}>Synopsis:</Typography>
-            <Typography fontSize={17}>{movie.synopsis}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Synopsis:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.synopsis}</Typography>
 
-            <Typography fontSize={21}>Genre:</Typography>
-            <Typography fontSize={17}>{movie.genre}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Genre:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.genre}</Typography>
 
-            <Typography fontSize={21}>Release Date:</Typography>
-            <Typography fontSize={17}>{movie.releaseDate}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Release Date:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.releaseDate}</Typography>
 
-            <Typography fontSize={21}>Movie URL:</Typography>
+            <Typography  sx={{wordBreak: "break-word"}} fontSize={21}>Movie URL:</Typography>
             <Typography fontSize={17}>{movie.movieUrl}</Typography>
           </Stack>
         </Stack>

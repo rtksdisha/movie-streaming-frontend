@@ -40,14 +40,14 @@ const MovieHome = ({ movie }) => {
           spacing={2}
         >
           <Stack spacing={1} sx={{ width: 1 }}>
-            <Typography fontSize={21}>Name:</Typography>
-            <Typography fontSize={17}>{movie.name}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Name:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.name}</Typography>
 
-            <Typography fontSize={21}>Genre:</Typography>
-            <Typography fontSize={17}>{movie.genre}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Genre:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.genre}</Typography>
 
-            <Typography fontSize={21}>Release Date:</Typography>
-            <Typography fontSize={17}>{movie.releaseDate}</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={21}>Release Date:</Typography>
+            <Typography sx={{wordBreak: "break-word"}} fontSize={17}>{movie.releaseDate}</Typography>
           </Stack>
         </Stack>
       </Box>
