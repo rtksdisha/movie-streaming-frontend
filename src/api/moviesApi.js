@@ -1,5 +1,5 @@
 //connect to DB for add update and delete
-const SERVER_URL = process.env.REACT_APP_API_URL + 'movies/'
+const SERVER_URL = process.env.REACT_APP_API_URL + '/movies/'
 
 export const getMovies = async () => {
   try {
