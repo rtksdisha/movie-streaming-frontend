@@ -10,7 +10,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Box sx={{ backgroundColor: "beige", height: 480, boxShadow: 3 }}>
+      <Box sx={{ backgroundColor: "beige", boxShadow: 3 }}>
         {/* Cover image */}
         <Box
           component="img"
@@ -37,7 +37,6 @@ const MovieDetails = () => {
             <Typography fontSize={17}>{movie.releaseDate}</Typography>
           </Stack>
         </Stack>
-      </Box>
       <Stack direction="row">
         <Button
           sx={{
@@ -68,6 +67,7 @@ const MovieDetails = () => {
           Add to Favorite
         </Button>
       </Stack>
+      </Box>
     </>
   );
 };
