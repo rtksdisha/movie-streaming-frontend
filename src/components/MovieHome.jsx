@@ -4,10 +4,6 @@ import Stack from "@mui/system/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { updateMovie } from "../api/moviesApi";
 
 const MovieHome = ({ movie }) => {
@@ -24,7 +20,7 @@ const MovieHome = ({ movie }) => {
       window.alert("Removed from favorites");
     }
   }
-
+  
   return (
     <>
       <Box
