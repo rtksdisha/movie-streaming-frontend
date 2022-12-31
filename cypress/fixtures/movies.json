@@ -1,0 +1,9 @@
+[{
+    "name": "Test Movie",
+    "synopsis": "Test Synopsis",
+    "genre": "comedy",
+    "releaseDate": 2022,
+    "movieUrl": "http://youtube.com",
+    "coverImage": "Test Image"
+}]
+  
