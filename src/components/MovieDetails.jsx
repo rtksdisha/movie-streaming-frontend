@@ -37,36 +37,38 @@ const MovieDetails = () => {
             <Typography fontSize={17}>{movie.releaseDate}</Typography>
           </Stack>
         </Stack>
-      <Stack direction="row">
-        <Button
-          sx={{
-            background: "Green",
-            height: 64,
-            color: "white",
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-        >
-          Watch Now
-        </Button>
-        <Button
-          sx={{
-            background: "black",
-            height: 64,
-            color: "white",
-            width: 1,
-            margin: 0,
-            padding: 0,
-            borderRadious: 0,
-            boxShadow: 3,
-          }}
-        >
-          Add to Favorite
-        </Button>
-      </Stack>
+        <Stack direction="row">
+          <a href={movie.movieUrl}>
+            <Button
+              sx={{
+                background: "Green",
+                height: 64,
+                color: "white",
+                width: 1,
+                margin: 0,
+                padding: 0,
+                borderRadious: 0,
+                boxShadow: 3,
+              }}
+            >
+              Watch Now
+            </Button>
+          </a>
+          <Button
+            sx={{
+              background: "black",
+              height: 64,
+              color: "white",
+              width: 1,
+              margin: 0,
+              padding: 0,
+              borderRadious: 0,
+              boxShadow: 3,
+            }}
+          >
+            Add to Favorite
+          </Button>
+        </Stack>
       </Box>
     </>
   );
