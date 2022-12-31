@@ -6,11 +6,10 @@ import React, { useCallback, useEffect } from "react";
 
 function moviesFilter(value, filteredMovies) {
   if (filteredMovies) {
-    console.log(filteredMovies);
     const field = value.split("-")[0];
     const direction = value.split("-")[1];
 
-    if (direction == "descending") {
+    if (direction === "descending") {
       return filteredMovies.sort((a, b) => {
         return a[field] < b[field] ? 1 : a[field] > b[field] ? -1 : 0;
       });
@@ -22,20 +21,22 @@ function moviesFilter(value, filteredMovies) {
   }
 }
 
-export default function SortAndFilter({ filteredMovies, setFilteredMovies }) {
+export default function SortAndFilter({ filteredMovies, updateMovies, updateMoviesSort }) {
   const [filter, setFilter] = React.useState("");
   const [sort, setSort] = React.useState("");
 
-  const handleFilter = useCallback((event) => {
+  const handleFilter = (event) => {
     const value = event.target.value;
 
-    setFilteredMovies(moviesFilter(value, filteredMovies));
-    setFilter(event.target.value);
-  });
+    updateMovies(moviesFilter(value, filteredMovies));
+    setFilter(value);
+  };
 
   const handleSort = (event) => {
-    console.log(event.target.value);
-    setSort(event.target.value);
+    const value = event.target.value;
+    
+    updateMoviesSort(value);
+    setSort(value);
   };
 
   return (

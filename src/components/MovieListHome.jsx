@@ -1,31 +1,40 @@
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import MovieHome from "./MovieHome";
 import SortAndFilter from "./SortAndFilter";
 
-const MovieListHome = ({ movies }) => {
-  //   if (movies.length === 0) {
-  //     return null;
-  //   }
-  const [filteredMovies, setFilteredMovies] = useState(movies);
+export default function MovieListHome({ movies }) {
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [shapes, setShapes] = useState(0);
+  const [genre, setGenre] = useState('')
 
-  useEffect(() =>{
-    setFilteredMovies(movies)
-    console.log(filteredMovies)
+  useEffect(() => {
+    setFilteredMovies(movies);
   }, [movies, filteredMovies, setFilteredMovies]);
 
-  return (
-    <><SortAndFilter filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies} />
-    <Grid container spacing={2} sx={{ mt: 1 }}>
-      {(filteredMovies).map((movie) => {
-        return (
-          <Grid key={movie._id} item xs={12} sm={6} md={4}>
-            <MovieHome movie={movie} key={movie._id} />
-          </Grid>
-        );
-      })}
-    </Grid></>
-  );
-};
+  function handleClick(nextMovies) {
+    setShapes(shapes + 1);
+    setFilteredMovies(nextMovies);
+  }
 
-export default MovieListHome;
+  function handleSort(value){
+    setGenre(value)
+  }
+
+  return (
+    <>
+      <SortAndFilter
+        filteredMovies={filteredMovies}
+        updateMovies={handleClick}
+        updateMoviesSort={handleSort}
+      />
+      <Grid container spacing={2} sx={{ mt: 1 }}>
+        {(genre ? filteredMovies.filter(m => m.genre === genre) : filteredMovies).map(movie => (
+          <Grid key={movie._id + Date.now()} item xs={12} sm={6} md={4}>
+            <MovieHome movie={movie} key={movie._id + Date.now()}/>
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  );
+}
